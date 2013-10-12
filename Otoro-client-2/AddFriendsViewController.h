@@ -15,6 +15,7 @@
     IBOutlet UIButton *contacts;
     IBOutlet UIButton *search;
     IBOutlet UIView *subview2;
+    IBOutlet UINavigationBar *navBar;
 }
 
 //@property (nonatomic, strong) IBOutlet SearchFriendView *searchFriendView;

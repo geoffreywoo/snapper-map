@@ -51,12 +51,11 @@
 -(IBAction) contactsButton:(id) sender {
     if (_addressBookViewController == nil)
         _addressBookViewController = [[AddressBookViewController alloc] init];
+
+    navBar.topItem.title = @"Contacts Book";
     
-//    [_addedYouViewController.view removeFromSuperview];
     [_searchViewController.view removeFromSuperview];
     [subview2 addSubview:_addressBookViewController.view];
-
-//    [addedYou setBackgroundColor: [UIColor blueColor]];
 
     [search setBackgroundColor: 	[UIColor colorWithRed:105.0/255.0 green:190.0/255.0 blue:232.0/255.0 alpha:1.0]];
     [contacts setBackgroundColor: 	[UIColor colorWithRed:131.0/255.0 green:209.0/255.0 blue:233.0/255.0 alpha:1.0]];
@@ -64,11 +63,12 @@
 
 -(IBAction) searchButton:(id) sender {
     NSLog(@"Search Button");
-//    [_addedYouViewController.view removeFromSuperview];
+
+    navBar.topItem.title = @"Search for Friends";
+    
     [_addressBookViewController.view removeFromSuperview];
     [subview2 addSubview:_searchViewController.view];
 
-//    [addedYou setBackgroundColor: [UIColor blueColor]];
     [contacts setBackgroundColor: 	[UIColor colorWithRed:105.0/255.0 green:190.0/255.0 blue:232.0/255.0 alpha:1.0]];
     [search setBackgroundColor: 	[UIColor colorWithRed:131.0/255.0 green:209.0/255.0 blue:233.0/255.0 alpha:1.0]];
 }

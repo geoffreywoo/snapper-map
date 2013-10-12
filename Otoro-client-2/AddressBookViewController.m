@@ -22,6 +22,7 @@ ABAddressBookRef addressBook;
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+        _addressBookUsers = [[NSMutableArray alloc] init];
     }
     return self;
 }
@@ -69,10 +70,10 @@ ABAddressBookRef addressBook;
         [allEmails addObjectsFromArray:[self emailsForABPerson:ref]];
     }
     
-    _addressBookUsers = [[NSMutableArray alloc] init];
     [[OtoroConnection sharedInstance] getFriendMatchesWithPhones:allPhones emails:allEmails completionBlock:^(NSError *error, NSDictionary *data) {
         if (error) {
         } else {
+            _addressBookUsers = [[NSMutableArray alloc] init];
             NSArray *users = [data objectForKey:@"users"];
             NSLog(@"users: %@",users);
             for (NSDictionary *user in users) {
