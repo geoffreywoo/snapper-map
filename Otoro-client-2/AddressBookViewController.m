@@ -70,6 +70,9 @@ ABAddressBookRef addressBook;
         [allEmails addObjectsFromArray:[self emailsForABPerson:ref]];
     }
     
+	NSString *loggedInUserName = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
+    _addressBookUsers = [[NSMutableArray alloc] init];
+
     [[OtoroConnection sharedInstance] getFriendMatchesWithPhones:allPhones emails:allEmails completionBlock:^(NSError *error, NSDictionary *data) {
         if (error) {
         } else {
@@ -80,7 +83,10 @@ ABAddressBookRef addressBook;
                 NSLog(@"user: %@",user);
                 NSString *userName = [user objectForKey:@"_id"];
                 NSLog(@"username: %@", userName);
-                [_addressBookUsers addObject:userName];
+				if (![userName isEqualToString:loggedInUserName])
+				{
+					[_addressBookUsers addObject:userName];
+				}
             }
             [addressBookUsersTableView reloadData];
             if ([users count] > 0) _label.hidden = YES;
