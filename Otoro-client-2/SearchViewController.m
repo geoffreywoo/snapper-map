@@ -117,6 +117,7 @@
     }
     
     cell.textLabel.text = title;
+    cell.accessoryType = UITableViewCellAccessoryNone;
     
     return cell;
 }
