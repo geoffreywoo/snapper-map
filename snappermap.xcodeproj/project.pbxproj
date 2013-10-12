@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		601AB8D317F76FE100F82013 /* bluearrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 601AB8D217F76FE100F82013 /* bluearrow@2x.png */; };
 		601AB8D917F7A0CA00F82013 /* SnapperMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 601AB8D817F7A0CA00F82013 /* SnapperMapAnnotation.m */; };
 		601AB8DC17F7A98500F82013 /* SnapperMapAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 601AB8DB17F7A98500F82013 /* SnapperMapAnnotationView.m */; };
 		602A4CE617C02F2E007DEF27 /* FriendListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 602A4CE417C02F2E007DEF27 /* FriendListViewController.m */; };
@@ -53,6 +52,8 @@
 		609227D617B84CC100E1D897 /* CreateToroViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 609227D517B84CC100E1D897 /* CreateToroViewController.xib */; };
 		609227D817B8538C00E1D897 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 609227D717B8538C00E1D897 /* CoreLocation.framework */; };
 		6097D9DF17B34A0100EC094E /* Toro.m in Sources */ = {isa = PBXBuildFile; fileRef = 6097D9DE17B34A0100EC094E /* Toro.m */; };
+		60BA35491809F9F300124045 /* delivered@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60BA35481809F9F300124045 /* delivered@2x.png */; };
+		60BA354B1809F9FA00124045 /* opened@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60BA354A1809F9FA00124045 /* opened@2x.png */; };
 		60CE1C6717AEDFE400C6249F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60CE1C6617AEDFE400C6249F /* UIKit.framework */; };
 		60CE1C6917AEDFE400C6249F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60CE1C6817AEDFE400C6249F /* Foundation.framework */; };
 		60CE1C6B17AEDFE400C6249F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60CE1C6A17AEDFE400C6249F /* CoreGraphics.framework */; };
@@ -109,7 +110,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		601AB8D217F76FE100F82013 /* bluearrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bluearrow@2x.png"; sourceTree = "<group>"; };
 		601AB8D717F7A0CA00F82013 /* SnapperMapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnapperMapAnnotation.h; sourceTree = "<group>"; };
 		601AB8D817F7A0CA00F82013 /* SnapperMapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SnapperMapAnnotation.m; sourceTree = "<group>"; };
 		601AB8DA17F7A98500F82013 /* SnapperMapAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnapperMapAnnotationView.h; sourceTree = "<group>"; };
@@ -171,6 +171,8 @@
 		609227D717B8538C00E1D897 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		6097D9DD17B34A0100EC094E /* Toro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Toro.h; sourceTree = "<group>"; };
 		6097D9DE17B34A0100EC094E /* Toro.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Toro.m; sourceTree = "<group>"; };
+		60BA35481809F9F300124045 /* delivered@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "delivered@2x.png"; sourceTree = "<group>"; };
+		60BA354A1809F9FA00124045 /* opened@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "opened@2x.png"; sourceTree = "<group>"; };
 		60CE1C6217AEDFE400C6249F /* snappermap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = snappermap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60CE1C6617AEDFE400C6249F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		60CE1C6817AEDFE400C6249F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -467,7 +469,8 @@
 		F4F9A53E17DBE7840027AE66 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				601AB8D217F76FE100F82013 /* bluearrow@2x.png */,
+				60BA354A1809F9FA00124045 /* opened@2x.png */,
+				60BA35481809F9F300124045 /* delivered@2x.png */,
 				608D601C17E6A863008CD91F /* sushi_pin.png */,
 				F4B0CD7917E6965C0057738D /* snappermap_inapp_icon_large.png */,
 				F4B0CD7A17E6965C0057738D /* snappermap_inapp_icon_large@2x.png */,
@@ -594,6 +597,7 @@
 				F4F9A54217DBE7BC0027AE66 /* poweredByFoursquare@2x.png in Resources */,
 				F4F31E8517E680F60067DB1D /* back_arrow_icon.png in Resources */,
 				F4F31E8617E680F60067DB1D /* back_arrow_icon@2x.png in Resources */,
+				60BA35491809F9F300124045 /* delivered@2x.png in Resources */,
 				F4F31E8717E680F60067DB1D /* globe_icon.png in Resources */,
 				609043B017FABC8600FE23F6 /* snappermap152x152.png in Resources */,
 				F4F31E8817E680F60067DB1D /* globe_icon@2x.png in Resources */,
@@ -612,12 +616,12 @@
 				F4E3E0B317E68C7F00807D97 /* contact_icon@2x.png in Resources */,
 				F4E3E0B617E68CA100807D97 /* search_icon.png in Resources */,
 				605CB7A117F818CB009F8228 /* LegalViewController.xib in Resources */,
-				601AB8D317F76FE100F82013 /* bluearrow@2x.png in Resources */,
 				F4E3E0B717E68CA100807D97 /* search_icon@2x.png in Resources */,
 				608D601317E686CA008CD91F /* Default@2x.png in Resources */,
 				608D601517E68759008CD91F /* Default-568h@2x.png in Resources */,
 				608D601717E68760008CD91F /* Default.png in Resources */,
 				F4B0CD7D17E6965C0057738D /* snappermap_inapp_icon_large.png in Resources */,
+				60BA354B1809F9FA00124045 /* opened@2x.png in Resources */,
 				F4B0CD7E17E6965C0057738D /* snappermap_inapp_icon_large@2x.png in Resources */,
 				F4B0CD7F17E6965C0057738D /* snappermap_inapp_icon_small.png in Resources */,
 				609043B117FABC8600FE23F6 /* snappermap120x120.png in Resources */,
