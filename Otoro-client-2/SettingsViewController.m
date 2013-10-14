@@ -62,6 +62,7 @@
     
     [OtoroConnection sharedInstance].friends = [[NSMutableArray alloc] init];
     [OtoroConnection sharedInstance].selectedFriends = [[NSMutableArray alloc] init];
+    [[OtoroConnection sharedInstance] setTorosData:[[NSArray alloc] init]];
     
     [[OtoroConnection sharedInstance] logoutWithUsername:username completionBlock:^(NSError *error, NSDictionary *returnData) {
     }];

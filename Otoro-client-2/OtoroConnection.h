@@ -27,6 +27,7 @@
 @property (nonatomic, strong) OUser *user;
 @property (nonatomic, strong) NSMutableArray *friends;
 @property (nonatomic, strong) NSMutableArray *selectedFriends;
+@property (nonatomic, strong) NSArray *torosData;
 
 // users
 - (void)getUserWithUserID:(NSString *)userID completionBlock:(OtoroConnectionCompletionBlock)block;

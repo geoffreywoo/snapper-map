@@ -19,7 +19,6 @@
 @property (nonatomic, strong) NSMutableData *responseData;
 
 @property (nonatomic, strong) NSMutableArray *torosReceived;
-@property (nonatomic, strong) NSArray *torosData;
 
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
 @property (nonatomic, strong) NSTimer *pollTimer;

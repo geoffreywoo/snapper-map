@@ -69,6 +69,12 @@ const int MAX_TIME = 15;
     return self;
 }
 
+- (void)invalidate {
+    if (_read)
+        _elapsedTime = MAX_TIME;
+    [self makeTimerLabel];
+}
+
 - (void)makeTimerLabel
 {
     [_timerLabel setFont:[UIFont systemFontOfSize:12]];

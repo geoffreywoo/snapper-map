@@ -21,7 +21,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         _torosReceived = [[NSMutableArray alloc] init];
-        _torosData = [[NSArray alloc] init];
+        [[OtoroConnection sharedInstance] setTorosData:[[NSArray alloc] init]];
     }
     return self;
 }
@@ -114,7 +114,7 @@
                     [toroToUpdate update:toro];
                 }
             }
-            _torosData = [_torosReceived sortedArrayUsingSelector:@selector(compare:)];
+            [[OtoroConnection sharedInstance] setTorosData:[_torosReceived sortedArrayUsingSelector:@selector(compare:)]];
             [toroTableView reloadData];
             [self.refreshControl endRefreshing];
         }
@@ -128,7 +128,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 0) {
         //NSLog(@"number toros recieved: %d",[ [self torosData] count]);
-        return [ [self torosData] count];
+        return [ [[OtoroConnection sharedInstance] torosData] count];
     } else {
         return 0;
     }
@@ -163,7 +163,7 @@
 - (void) popToro:(UIButton*)sender
 {
     NSLog(@"pop toro!");
-    Toro *theToro = [[self torosData] objectAtIndex:sender.tag];
+    Toro *theToro = [[[OtoroConnection sharedInstance] torosData] objectAtIndex:sender.tag];
     if (!theToro) return;
     
     if([theToro popped]) return;
@@ -203,7 +203,7 @@
 - (void) hideToroFromButton:(UIButton*)sender
 {
 
-    Toro *theToro = [[self torosData] objectAtIndex:sender.tag];
+    Toro *theToro = [[[OtoroConnection sharedInstance] torosData] objectAtIndex:sender.tag];
     [self hideToro:theToro];
    // if (!theToro) return;
   //  if (![theToro toroViewController]) return;
@@ -274,12 +274,13 @@
         NSMutableString *timeLabelText = [NSMutableString stringWithString:[toro created_string]];
         [timeLabelText appendString:@" - Delivered"];
         cell.timeLabel.text = timeLabelText;
+        [cell.statusView setImage:[UIImage imageNamed:@"delivered.png"]];
     }
     return cell;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    Toro *o = [[self torosData] objectAtIndex:indexPath.row];
+    Toro *o = [[[OtoroConnection sharedInstance] torosData] objectAtIndex:indexPath.row];
     NSString *myName = [[OtoroConnection sharedInstance] user].username;
     if ([o.sender isEqualToString:myName]) {
         return [self createSentCellWithTableView:tableView withToro:o withIndex:indexPath.row];
