@@ -81,8 +81,8 @@ NSString *const OTORO_HOST = @"http://otoro.herokuapp.com";
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
-    //NSLog(@"connectionDidFinishLoading");
-    //NSLog(@"connection string %@", [[NSString alloc] initWithData:[self callForConnection:connection].data encoding:NSUTF8StringEncoding]);
+    NSLog(@"connectionDidFinishLoading");
+    NSLog(@"connection string %@", [[NSString alloc] initWithData:[self callForConnection:connection].data encoding:NSUTF8StringEncoding]);
     
     NSError *error;
     
