@@ -109,17 +109,4 @@
      */
 }
 
-- (void)application:(UIApplication *)app didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
-{
-    NSString *deviceTokenStr = [[[[deviceToken description]
-                                  stringByReplacingOccurrencesOfString: @"<" withString: @""]
-                                 stringByReplacingOccurrencesOfString: @">" withString: @""]
-                                stringByReplacingOccurrencesOfString: @" " withString: @""];
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:deviceTokenStr forKey:@"deviceToken"];
-    NSString *username = [defaults objectForKey:@"username"];
-    [[OtoroConnection sharedInstance] registerDeviceToken:username withDeviceToken:deviceTokenStr completionBlock:^(NSError *error, NSDictionary *returnData) {
-    }];
-}
-
 @end

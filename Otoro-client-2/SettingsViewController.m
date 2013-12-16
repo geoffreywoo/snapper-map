@@ -69,6 +69,8 @@
     }];
     
     [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+    [[UAPush shared] setPushEnabled:YES];
+    [defaults setBool:NO forKey:@"registeredDeviceToken"];
     [UAPush shared].alias = nil;
     [[UAPush shared] updateRegistration];
     
