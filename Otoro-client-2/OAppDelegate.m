@@ -10,6 +10,9 @@
 #import "SplashViewController.h"
 #import "OtoroContentViewController.h"
 #import "OtoroConnection.h"
+#import "UAirship.h"
+#import "UAConfig.h"
+#import "UAPush.h"
 
 @implementation OAppDelegate
 
@@ -25,12 +28,13 @@
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSString *username = [defaults objectForKey:@"username"];
+    [UAirship takeOff];
     if (username == nil) {
         SplashViewController *rootViewController = [[SplashViewController alloc] init];
         UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:rootViewController];
         navigationController.navigationBarHidden = YES;
         self.window.rootViewController = navigationController;
-        
+        [UAPush setDefaultPushEnabledValue:NO];
     } else {
         OUser *me = [[OUser alloc] initFromNSDefaults];
         [[OtoroConnection sharedInstance] setUser: me];
@@ -39,11 +43,12 @@
         UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:rootViewController];
         navigationController.navigationBarHidden = YES;
         self.window.rootViewController = navigationController;
-        
-        [application registerForRemoteNotificationTypes:
-         UIRemoteNotificationTypeBadge |
-         UIRemoteNotificationTypeAlert |
-         UIRemoteNotificationTypeSound];
+        [[UAPush shared] setPushEnabled:YES];
+        if (![defaults boolForKey:@"registeredDeviceToken"]) {
+            [UAPush shared].alias = username;
+            [[UAPush shared] updateRegistration];
+            [defaults setBool:YES forKey:@"registeredDeviceToken"];
+        }
     }
     
     [self.window makeKeyAndVisible];
@@ -102,19 +107,6 @@
      Save data if appropriate.
      See also applicationDidEnterBackground:.
      */
-}
-
-- (void)application:(UIApplication *)app didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
-{
-    NSString *deviceTokenStr = [[[[deviceToken description]
-                                  stringByReplacingOccurrencesOfString: @"<" withString: @""]
-                                 stringByReplacingOccurrencesOfString: @">" withString: @""]
-                                stringByReplacingOccurrencesOfString: @" " withString: @""];
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:deviceTokenStr forKey:@"deviceToken"];
-    NSString *username = [defaults objectForKey:@"username"];
-    [[OtoroConnection sharedInstance] registerDeviceToken:username withDeviceToken:deviceTokenStr completionBlock:^(NSError *error, NSDictionary *returnData) {
-    }];
 }
 
 @end

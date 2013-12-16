@@ -72,6 +72,15 @@
 		60CE1CA017AF2DAB00C6249F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60CE1C9F17AF2DAB00C6249F /* MapKit.framework */; };
 		DB9DA81C17C01D43005418CB /* OtoroConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = DB9DA81B17C01D43005418CB /* OtoroConnection.m */; };
 		DB9DA82117C02AB9005418CB /* OtoroConnectionCall.m in Sources */ = {isa = PBXBuildFile; fileRef = DB9DA82017C02AB9005418CB /* OtoroConnectionCall.m */; };
+		EA407784185EA05300AE54EC /* libUAirship-3.0.2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EA407783185EA05300AE54EC /* libUAirship-3.0.2.a */; };
+		EA407786185EA06500AE54EC /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA407785185EA06500AE54EC /* CFNetwork.framework */; };
+		EA407788185EA07700AE54EC /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA407787185EA07700AE54EC /* MobileCoreServices.framework */; };
+		EA40778A185EA08200AE54EC /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA407789185EA08200AE54EC /* Security.framework */; };
+		EA40778C185EA09100AE54EC /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA40778B185EA09100AE54EC /* SystemConfiguration.framework */; };
+		EA40778E185EA0AA00AE54EC /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EA40778D185EA0AA00AE54EC /* libz.dylib */; };
+		EA407790185EA0B600AE54EC /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EA40778F185EA0B600AE54EC /* libsqlite3.dylib */; };
+		EA407792185EA0C200AE54EC /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA407791185EA0C200AE54EC /* CoreTelephony.framework */; };
+		EA407794185EA86E00AE54EC /* AirshipConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = EA407793185EA86E00AE54EC /* AirshipConfig.plist */; };
 		F4B0CD7D17E6965C0057738D /* snappermap_inapp_icon_large.png in Resources */ = {isa = PBXBuildFile; fileRef = F4B0CD7917E6965C0057738D /* snappermap_inapp_icon_large.png */; };
 		F4B0CD7E17E6965C0057738D /* snappermap_inapp_icon_large@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F4B0CD7A17E6965C0057738D /* snappermap_inapp_icon_large@2x.png */; };
 		F4B0CD7F17E6965C0057738D /* snappermap_inapp_icon_small.png in Resources */ = {isa = PBXBuildFile; fileRef = F4B0CD7B17E6965C0057738D /* snappermap_inapp_icon_small.png */; };
@@ -200,6 +209,15 @@
 		DB9DA81B17C01D43005418CB /* OtoroConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OtoroConnection.m; sourceTree = "<group>"; };
 		DB9DA81F17C02AB9005418CB /* OtoroConnectionCall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OtoroConnectionCall.h; sourceTree = "<group>"; };
 		DB9DA82017C02AB9005418CB /* OtoroConnectionCall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OtoroConnectionCall.m; sourceTree = "<group>"; };
+		EA407783185EA05300AE54EC /* libUAirship-3.0.2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libUAirship-3.0.2.a"; path = "Airship/libUAirship-3.0.2.a"; sourceTree = "<group>"; };
+		EA407785185EA06500AE54EC /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		EA407787185EA07700AE54EC /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		EA407789185EA08200AE54EC /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		EA40778B185EA09100AE54EC /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		EA40778D185EA0AA00AE54EC /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		EA40778F185EA0B600AE54EC /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		EA407791185EA0C200AE54EC /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		EA407793185EA86E00AE54EC /* AirshipConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AirshipConfig.plist; sourceTree = "<group>"; };
 		F4B0CD7917E6965C0057738D /* snappermap_inapp_icon_large.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = snappermap_inapp_icon_large.png; path = Resources/snappermap_inapp_icon_large.png; sourceTree = "<group>"; };
 		F4B0CD7A17E6965C0057738D /* snappermap_inapp_icon_large@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "snappermap_inapp_icon_large@2x.png"; path = "Resources/snappermap_inapp_icon_large@2x.png"; sourceTree = "<group>"; };
 		F4B0CD7B17E6965C0057738D /* snappermap_inapp_icon_small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = snappermap_inapp_icon_small.png; path = Resources/snappermap_inapp_icon_small.png; sourceTree = "<group>"; };
@@ -234,10 +252,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				609227D817B8538C00E1D897 /* CoreLocation.framework in Frameworks */,
+				EA407792185EA0C200AE54EC /* CoreTelephony.framework in Frameworks */,
+				EA407790185EA0B600AE54EC /* libsqlite3.dylib in Frameworks */,
+				EA40778E185EA0AA00AE54EC /* libz.dylib in Frameworks */,
+				EA40778C185EA09100AE54EC /* SystemConfiguration.framework in Frameworks */,
+				EA40778A185EA08200AE54EC /* Security.framework in Frameworks */,
+				EA407788185EA07700AE54EC /* MobileCoreServices.framework in Frameworks */,
+				EA407786185EA06500AE54EC /* CFNetwork.framework in Frameworks */,
 				608E7D9317DCFD2B00238AD7 /* AddressBookUI.framework in Frameworks */,
 				60529FC217CA8E1700C7F064 /* AddressBook.framework in Frameworks */,
-				609227D817B8538C00E1D897 /* CoreLocation.framework in Frameworks */,
 				60CE1CA017AF2DAB00C6249F /* MapKit.framework in Frameworks */,
+				EA407784185EA05300AE54EC /* libUAirship-3.0.2.a in Frameworks */,
 				60CE1C6717AEDFE400C6249F /* UIKit.framework in Frameworks */,
 				60CE1C6917AEDFE400C6249F /* Foundation.framework in Frameworks */,
 				60CE1C6B17AEDFE400C6249F /* CoreGraphics.framework in Frameworks */,
@@ -373,6 +399,8 @@
 		60CE1C5717AEDFE400C6249F = {
 			isa = PBXGroup;
 			children = (
+				EA407793185EA86E00AE54EC /* AirshipConfig.plist */,
+				EA407783185EA05300AE54EC /* libUAirship-3.0.2.a */,
 				609043B417FABD1500FE23F6 /* snappermap80x80.png */,
 				609043B817FABE7A00FE23F6 /* snappermap58x58.png */,
 				609043B617FABD4100FE23F6 /* snappermap40x40.png */,
@@ -407,6 +435,13 @@
 		60CE1C6517AEDFE400C6249F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EA407791185EA0C200AE54EC /* CoreTelephony.framework */,
+				EA40778F185EA0B600AE54EC /* libsqlite3.dylib */,
+				EA40778D185EA0AA00AE54EC /* libz.dylib */,
+				EA40778B185EA09100AE54EC /* SystemConfiguration.framework */,
+				EA407789185EA08200AE54EC /* Security.framework */,
+				EA407787185EA07700AE54EC /* MobileCoreServices.framework */,
+				EA407785185EA06500AE54EC /* CFNetwork.framework */,
 				60CE1C9F17AF2DAB00C6249F /* MapKit.framework */,
 				60CE1C6617AEDFE400C6249F /* UIKit.framework */,
 				60CE1C6817AEDFE400C6249F /* Foundation.framework */,
@@ -553,7 +588,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 60CE1C5C17AEDFE400C6249F /* Build configuration list for PBXProject "snappermap" */;
+			buildConfigurationList = 60CE1C5C17AEDFE400C6249F /* Build configuration list for PBXProject "SnapperMap" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -594,6 +629,7 @@
 				608EF30A17DBF9530040B0B2 /* OtoroReceivedTableViewCell.xib in Resources */,
 				F4F9A53A17DBDADD0027AE66 /* OtoroChooseVenueViewController.xib in Resources */,
 				F4F9A54117DBE7BC0027AE66 /* poweredByFoursquare.png in Resources */,
+				EA407794185EA86E00AE54EC /* AirshipConfig.plist in Resources */,
 				F4F9A54217DBE7BC0027AE66 /* poweredByFoursquare@2x.png in Resources */,
 				F4F31E8517E680F60067DB1D /* back_arrow_icon.png in Resources */,
 				F4F31E8617E680F60067DB1D /* back_arrow_icon@2x.png in Resources */,
@@ -806,8 +842,18 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Otoro-client-2/snappermap-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"./Airship/**",
+				);
 				INFOPLIST_FILE = "Otoro-client-2/snappermap-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/tony/Code/snapper/snappermap/Airship,
+				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = snappermap;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -822,8 +868,18 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Otoro-client-2/snappermap-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"./Airship/**",
+				);
 				INFOPLIST_FILE = "Otoro-client-2/snappermap-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/tony/Code/snapper/snappermap/Airship,
+				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = snappermap;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -868,7 +924,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		60CE1C5C17AEDFE400C6249F /* Build configuration list for PBXProject "snappermap" */ = {
+		60CE1C5C17AEDFE400C6249F /* Build configuration list for PBXProject "SnapperMap" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				60CE1C8D17AEDFE400C6249F /* Debug */,

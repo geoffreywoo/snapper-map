@@ -127,7 +127,6 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 0) {
-        //NSLog(@"number toros recieved: %d",[ [self torosData] count]);
         return [ [[OtoroConnection sharedInstance] torosData] count];
     } else {
         return 0;
@@ -162,15 +161,11 @@
 
 - (void) popToro:(UIButton*)sender
 {
-    NSLog(@"pop toro!");
     Toro *theToro = [[[OtoroConnection sharedInstance] torosData] objectAtIndex:sender.tag];
     if (!theToro) return;
     
     if([theToro popped]) return;
     [theToro setPopped:true];
-    
-    NSLog(@"pop toro %@ went through.", [theToro toroId]);
-    
     [theToro.statusView setImage:[UIImage imageNamed: @"sushi_pin.png"]];
     
     if (![theToro read]) {
@@ -213,11 +208,8 @@
 
 - (void)hideToro:(Toro*)toro
 {
-    NSLog(@"hide Toro!");
     if(![toro popped]) return;
     [toro setPopped:false];
-    
-    NSLog(@"hide toro %@ went through.", [toro toroId]);
     [[toro toroViewController].view removeFromSuperview];
 }
 
@@ -307,12 +299,9 @@
 
 -(IBAction) toTakeToroView:(id) sender
 {
-    NSLog(@"take toro view");
-    
     if (_createToroViewController == nil) {
         _createToroViewController = [[CreateToroViewController alloc] init];
     }
-
     [[self navigationController] pushViewController:_createToroViewController animated:YES];
 }
 
