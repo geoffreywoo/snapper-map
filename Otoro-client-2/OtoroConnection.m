@@ -81,6 +81,15 @@ NSString *const OTORO_HOST = @"http://otoro.herokuapp.com";
     [self clearConnectionFromDictionaries:connection];
 }
 
+- (NSError *)errorForResponse:(NSDictionary *)response
+{
+	if (response && response[@"error"])
+	{
+		[NSError errorWithDomain:response[@"error"] code:-1 userInfo:response];
+	}
+	return [NSError errorWithDomain:@"Server error" code:-1 userInfo:response];
+}
+
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
     NSLog(@"connectionDidFinishLoading");
     NSLog(@"connection string %@", [[NSString alloc] initWithData:[self callForConnection:connection].data encoding:NSUTF8StringEncoding]);
@@ -106,7 +115,7 @@ NSString *const OTORO_HOST = @"http://otoro.herokuapp.com";
             NSDictionary *user = ((NSArray*)[o objectForKey:@"elements"])[0];
             [self callForConnection:connection].completionBlock(error, @{@"user":user});
         } else {
-            error = [NSError errorWithDomain:[o objectForKey:@"error"] code:-1 userInfo:o];
+			error = [self errorForResponse:o];
             [self callForConnection:connection].completionBlock(error, nil);
         }
 	} else if (apiType == OtoroConnectionAPITypeUpdateUser) {
@@ -114,7 +123,7 @@ NSString *const OTORO_HOST = @"http://otoro.herokuapp.com";
         if ([[o objectForKey:@"ok"] boolValue]) {
             [self callForConnection:connection].completionBlock(error, nil);
         } else {
-            error = [NSError errorWithDomain:[o objectForKey:@"error"] code:-1 userInfo:o];
+			error = [self errorForResponse:o];
             [self callForConnection:connection].completionBlock(error, nil);
         }
     } else if (apiType == OtoroConnectionAPITypeLogin) {
@@ -124,7 +133,7 @@ NSString *const OTORO_HOST = @"http://otoro.herokuapp.com";
             NSDictionary *user = ((NSArray*)[o objectForKey:@"elements"])[0];
             [self callForConnection:connection].completionBlock(error, @{@"user":user});
         } else {
-            error = [NSError errorWithDomain:[o objectForKey:@"error"] code:-1 userInfo:o];
+			error = [self errorForResponse:o];
             [self callForConnection:connection].completionBlock(error, nil);
         }
 	} else if (apiType == OtoroConnectionAPITypeLogout) {
@@ -134,7 +143,7 @@ NSString *const OTORO_HOST = @"http://otoro.herokuapp.com";
             NSString *status = ((NSArray*)[o objectForKey:@"elements"])[0];
             [self callForConnection:connection].completionBlock(error, @{@"status":status});
         } else {
-            error = [NSError errorWithDomain:[o objectForKey:@"error"] code:-1 userInfo:o];
+			error = [self errorForResponse:o];
             [self callForConnection:connection].completionBlock(error, nil);
         }
 	} else if (apiType == OtoroConnectionAPITypeGetBadgeCount) {
@@ -144,7 +153,7 @@ NSString *const OTORO_HOST = @"http://otoro.herokuapp.com";
             NSLog(@"BADGE COUNT: %@",count);
             [self callForConnection:connection].completionBlock(error, @{@"count":count});
         } else {
-            error = [NSError errorWithDomain:[o objectForKey:@"error"] code:-1 userInfo:o];
+			error = [self errorForResponse:o];
             [self callForConnection:connection].completionBlock(error, nil);
         }
     } else if (apiType == OtoroConnectionAPITypeMatchAddressBook) {
@@ -152,7 +161,7 @@ NSString *const OTORO_HOST = @"http://otoro.herokuapp.com";
         if ([[o objectForKey:@"ok"] boolValue]) {
             [self callForConnection:connection].completionBlock(error, @{@"users":o[@"elements"]});
         } else {
-            error = [NSError errorWithDomain:[o objectForKey:@"error"] code:-1 userInfo:o];
+			error = [self errorForResponse:o];
             [self callForConnection:connection].completionBlock(error, nil);
         }
     } else if (apiType == OtoroConnectionAPITypeCreateToro) {
@@ -163,6 +172,7 @@ NSString *const OTORO_HOST = @"http://otoro.herokuapp.com";
         }
         else
         {
+			error = [self errorForResponse:jsonToros];
             [self callForConnection:connection].completionBlock(error, nil);
         }
     } else if (apiType == OtoroConnectionAPITypeGetReceivedToro) {
@@ -173,6 +183,7 @@ NSString *const OTORO_HOST = @"http://otoro.herokuapp.com";
         }
         else
         {
+            error = [self errorForResponse:toroData];
             [self callForConnection:connection].completionBlock(error, nil);
         }
     } else if (apiType == OtoroConnectionAPITypeGetSentToros) {
@@ -183,6 +194,7 @@ NSString *const OTORO_HOST = @"http://otoro.herokuapp.com";
         }
         else
         {
+            error = [self errorForResponse:toroData];
             [self callForConnection:connection].completionBlock(error, nil);
         }
     } else if (apiType == OtoroConnectionAPITypeGetAllToros) {
@@ -193,6 +205,7 @@ NSString *const OTORO_HOST = @"http://otoro.herokuapp.com";
         }
         else
         {
+            error = [self errorForResponse:toroData];
             [self callForConnection:connection].completionBlock(error, nil);
         }
     } else if (apiType == OtoroConnectionAPITypeSetToroRead) {
@@ -226,8 +239,10 @@ NSString *const OTORO_HOST = @"http://otoro.herokuapp.com";
         }
         else
         {
+            error = [self errorForResponse:resp];
             [self callForConnection:connection].completionBlock(error, nil);
-        }    } else if (apiType == OtoroConnectionAPITypeAddFriend) {
+        }
+    } else if (apiType == OtoroConnectionAPITypeAddFriend) {
         NSDictionary *resp = [NSJSONSerialization JSONObjectWithData:[self callForConnection:connection].data options:NSJSONReadingMutableLeaves error:&error];
         if (resp)
         {
@@ -243,6 +258,7 @@ NSString *const OTORO_HOST = @"http://otoro.herokuapp.com";
         } 
         else
         {
+            error = [self errorForResponse:resp];
             [self callForConnection:connection].completionBlock(error, nil);
         }
     } else if (apiType == OtoroConnectionAPITypeRemoveFriends) {
@@ -263,6 +279,7 @@ NSString *const OTORO_HOST = @"http://otoro.herokuapp.com";
         }
         else
         {
+            error = [self errorForResponse:resp];
             [self callForConnection:connection].completionBlock(error, nil);
         }
     } else if (apiType == OtoroConnectionAPITypeRegisterDeviceToken) {
@@ -273,6 +290,7 @@ NSString *const OTORO_HOST = @"http://otoro.herokuapp.com";
         }
         else
         {
+            error = [self errorForResponse:resp];
             [self callForConnection:connection].completionBlock(error, nil);
         }
     } else if (apiType == OtoroConnectionAPITypeUnregisterDeviceToken) {
@@ -283,6 +301,7 @@ NSString *const OTORO_HOST = @"http://otoro.herokuapp.com";
         }
         else
         {
+            error = [self errorForResponse:resp];
             [self callForConnection:connection].completionBlock(error, nil);
         }
     }

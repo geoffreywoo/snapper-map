@@ -588,7 +588,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 60CE1C5C17AEDFE400C6249F /* Build configuration list for PBXProject "SnapperMap" */;
+			buildConfigurationList = 60CE1C5C17AEDFE400C6249F /* Build configuration list for PBXProject "snappermap" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -838,8 +838,8 @@
 		60CE1C9017AEDFE400C6249F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: SERRICE CORP (9492KYU2PD)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: SERRICE CORP (9492KYU2PD)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Otoro-client-2/snappermap-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -849,13 +849,10 @@
 				);
 				INFOPLIST_FILE = "Otoro-client-2/snappermap-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					/Users/tony/Code/snapper/snappermap/Airship,
-				);
+				LIBRARY_SEARCH_PATHS = ./Airship;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = snappermap;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "6B73742C-271D-4F35-9E3A-2341DAFF1E36";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -864,8 +861,8 @@
 		60CE1C9117AEDFE400C6249F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: SERRICE CORP (9492KYU2PD)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: SERRICE CORP (9492KYU2PD)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Otoro-client-2/snappermap-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -875,13 +872,10 @@
 				);
 				INFOPLIST_FILE = "Otoro-client-2/snappermap-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					/Users/tony/Code/snapper/snappermap/Airship,
-				);
+				LIBRARY_SEARCH_PATHS = ./Airship;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = snappermap;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "6B73742C-271D-4F35-9E3A-2341DAFF1E36";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -924,7 +918,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		60CE1C5C17AEDFE400C6249F /* Build configuration list for PBXProject "SnapperMap" */ = {
+		60CE1C5C17AEDFE400C6249F /* Build configuration list for PBXProject "snappermap" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				60CE1C8D17AEDFE400C6249F /* Debug */,
