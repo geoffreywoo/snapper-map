@@ -588,7 +588,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 60CE1C5C17AEDFE400C6249F /* Build configuration list for PBXProject "snappermap" */;
+			buildConfigurationList = 60CE1C5C17AEDFE400C6249F /* Build configuration list for PBXProject "SnapperMap" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -838,8 +838,8 @@
 		60CE1C9017AEDFE400C6249F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution: SERRICE CORP (9492KYU2PD)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: SERRICE CORP (9492KYU2PD)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Tony Wu (LZPHZB64CL)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Tony Wu (LZPHZB64CL)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Otoro-client-2/snappermap-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -852,7 +852,7 @@
 				LIBRARY_SEARCH_PATHS = ./Airship;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = snappermap;
-				PROVISIONING_PROFILE = "6B73742C-271D-4F35-9E3A-2341DAFF1E36";
+				PROVISIONING_PROFILE = "9EBC0A8C-3363-41AC-9366-4A5612793861";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -875,7 +875,7 @@
 				LIBRARY_SEARCH_PATHS = ./Airship;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = snappermap;
-				PROVISIONING_PROFILE = "6B73742C-271D-4F35-9E3A-2341DAFF1E36";
+				PROVISIONING_PROFILE = "62DDAC44-80A6-4BCE-8500-D82DB760B3BC";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -918,7 +918,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		60CE1C5C17AEDFE400C6249F /* Build configuration list for PBXProject "snappermap" */ = {
+		60CE1C5C17AEDFE400C6249F /* Build configuration list for PBXProject "SnapperMap" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				60CE1C8D17AEDFE400C6249F /* Debug */,

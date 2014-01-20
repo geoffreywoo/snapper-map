@@ -69,8 +69,6 @@
     }];
     
     [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
-    [[UAPush shared] setPushEnabled:YES];
-    [defaults setBool:NO forKey:@"registeredDeviceToken"];
     [UAPush shared].alias = nil;
     [[UAPush shared] updateRegistration];
     
@@ -81,9 +79,6 @@
     OAppDelegate *delegate = (OAppDelegate *)[[UIApplication sharedApplication] delegate];
     delegate.window.rootViewController = navigationController;
     [delegate.window makeKeyAndVisible];
-    
-    
-    
 }
 - (IBAction)backgroundTapped:(id)sender
 {
