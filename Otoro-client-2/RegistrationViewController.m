@@ -90,6 +90,12 @@
     }];
 }
 
+-(BOOL) checkAlphanumeric:(NSString*)str
+{
+    NSCharacterSet *alphaSet = [NSCharacterSet alphanumericCharacterSet];
+    return [[str stringByTrimmingCharactersInSet:alphaSet] isEqualToString:@""];
+}
+
 -(BOOL) isValid {
     if (usernameField.text.length < 3) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sorry"
@@ -99,6 +105,15 @@
                                               otherButtonTitles:nil];
         [alert show];
         return NO;
+    } else if (![self checkAlphanumeric:usernameField.text]) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sorry"
+                                                        message:@"Use only alphabet and numbers for your username."
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+        return NO;
+
     } else if (passwordField.text.length < 4) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sorry"
                                                         message:@"Password is too short."

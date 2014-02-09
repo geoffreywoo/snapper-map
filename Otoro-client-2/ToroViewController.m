@@ -44,27 +44,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    CLLocationCoordinate2D location = mapView.userLocation.coordinate;
-    MKCoordinateRegion region;
-    MKCoordinateSpan span;
     
-    location.latitude  = [[self toro] lat];
-    location.longitude = [[self toro] lng];
+    _location.latitude  = [[self toro] lat];
+    _location.longitude = [[self toro] lng];
     
-    span.latitudeDelta = 0.005;
-    span.longitudeDelta = 0.005;
-    
-    region.span = span;
-    region.center = location;
-    
-    CLLocationCoordinate2D coord = CLLocationCoordinate2DMake(location.latitude,location.longitude);
+    CLLocationCoordinate2D coord = CLLocationCoordinate2DMake(_location.latitude,_location.longitude);
     SnapperMapAnnotation *pin = [[SnapperMapAnnotation alloc] initWithTitle:[_toro sender] andCoordinate:coord];
 
     [mapView addAnnotation:pin];
     
-    [mapView setRegion:region animated:YES];
-    [mapView regionThatFits:region];
     [self.view sendSubviewToBack:mapView];
     [[self countDown] setText:[NSString stringWithFormat:@"%d",[[self toro] maxTime]]];
    
@@ -80,15 +68,37 @@
         }
     }
     [_venue setText:headerStr];
-    
-    //[label setText:[NSString stringWithFormat:@"sent from: %@, s/he is at lat/lng: (%f, %f)", [[self toro] sender],location.latitude,location.longitude]];
+    [self centerMapOnSnapperLocation];
 }
 
-- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id < MKAnnotation >)annotation
+-(void)viewWillAppear:(BOOL)animated
+{
+    [self centerMapOnSnapperLocation];
+}
+
+-(void)centerMapOnSnapperLocation
+{
+    MKCoordinateRegion region;
+    MKCoordinateSpan span;
+    
+    _location.latitude  = [[self toro] lat];
+    _location.longitude = [[self toro] lng];
+    
+    span.latitudeDelta = 0.005;
+    span.longitudeDelta = 0.005;
+    
+    region.span = span;
+    region.center = _location;
+    
+    [mapView setRegion:region animated:YES];
+    [mapView regionThatFits:region];
+}
+
+- (MKAnnotationView *)mapView:(MKMapView *)map viewForAnnotation:(id < MKAnnotation >)annotation
 {
     if ([annotation isKindOfClass:[SnapperMapAnnotation class]]) {
         NSString *annotationIdentifier = @"SnapperMapAnnotationView";
-		SnapperMapAnnotationView *annotationView = (SnapperMapAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:annotationIdentifier];
+		SnapperMapAnnotationView *annotationView = (SnapperMapAnnotationView *)[map dequeueReusableAnnotationViewWithIdentifier:annotationIdentifier];
 		if (annotationView == nil) {
 		    annotationView = [[SnapperMapAnnotationView alloc] initWithAnnotation:annotation  reuseIdentifier:@"SnapperMapAnnotationView"];
 		}
@@ -109,6 +119,20 @@
 {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    // Pass to top of chain
+    NSLog(@"touches began");
+    UIResponder *responder = self;
+    while (responder.nextResponder != nil){
+        responder = responder.nextResponder;
+        if ([responder isKindOfClass:[UIViewController class]]) {
+            // Got ViewController
+            break;
+        }
+    }
+    [responder touchesBegan:touches withEvent:event];
 }
 
 @end

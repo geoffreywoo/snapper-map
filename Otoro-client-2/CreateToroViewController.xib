@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4510" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="13B3116" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CreateToroViewController">
@@ -9,6 +9,7 @@
                 <outlet property="backButton" destination="4" id="12"/>
                 <outlet property="backgroundView" destination="109" id="116"/>
                 <outlet property="chooseVenueButton" destination="145" id="158"/>
+                <outlet property="drawView" destination="XHy-yX-uf5" id="LUt-RV-5Xz"/>
                 <outlet property="mapView" destination="13" id="22"/>
                 <outlet property="message" destination="98" id="106"/>
                 <outlet property="sendToroButton" destination="23" id="35"/>
@@ -20,17 +21,41 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="13">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <connections>
-                        <outlet property="delegate" destination="-1" id="21"/>
-                    </connections>
-                </mapView>
                 <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="109">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
+                        <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="13">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="21"/>
+                            </connections>
+                        </mapView>
+                        <view opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XHy-yX-uf5" customClass="DrawView">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4">
+                            <rect key="frame" x="0.0" y="0.0" width="60" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="60" id="176"/>
+                                <constraint firstAttribute="height" constant="44" id="177"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                            <inset key="imageEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <state key="normal" image="back_arrow_icon.png">
+                                <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <state key="highlighted">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="backButton:" destination="-1" eventType="touchUpInside" id="11"/>
+                            </connections>
+                        </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="145">
                             <rect key="frame" x="0.0" y="416" width="320" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -52,26 +77,6 @@
                                 <action selector="choosePlaceButtonPressed:" destination="-1" eventType="touchUpInside" id="156"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4">
-                            <rect key="frame" x="0.0" y="0.0" width="60" height="44"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="60" id="176"/>
-                                <constraint firstAttribute="height" constant="44" id="177"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                            <inset key="imageEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
-                            <state key="normal" image="back_arrow_icon.png">
-                                <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <state key="highlighted">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="backButton:" destination="-1" eventType="touchUpInside" id="11"/>
-                            </connections>
-                        </button>
                         <textField opaque="NO" clipsSubviews="YES" alpha="0.79999999999999982" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Write a message!" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="98">
                             <rect key="frame" x="0.0" y="183" width="320" height="60"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -86,14 +91,40 @@
                                 <outlet property="delegate" destination="-1" id="107"/>
                             </connections>
                         </textField>
+                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IC4-Dd-HZE">
+                            <rect key="frame" x="290" y="0.0" width="30" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="Pen">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="penPressed:" destination="-1" eventType="touchDown" id="EYx-D6-PXK"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dsj-Sc-06D">
+                            <rect key="frame" x="220" y="0.0" width="46" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="Erase">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="eraserPressed:" destination="-1" eventType="touchDown" id="Mau-Gf-Tvg"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="145" firstAttribute="leading" secondItem="109" secondAttribute="leading" id="182"/>
                         <constraint firstItem="145" firstAttribute="trailing" secondItem="109" secondAttribute="trailing" id="183"/>
                         <constraint firstAttribute="bottom" secondItem="145" secondAttribute="bottom" constant="20" symbolic="YES" id="184"/>
+                        <constraint firstAttribute="bottom" secondItem="13" secondAttribute="bottom" id="0DQ-Rl-4NH"/>
+                        <constraint firstAttribute="trailing" secondItem="IC4-Dd-HZE" secondAttribute="trailing" constant="10" id="0fT-MM-Hrl"/>
+                        <constraint firstItem="Dsj-Sc-06D" firstAttribute="top" secondItem="109" secondAttribute="top" constant="20" id="FgJ-hT-ZSv"/>
+                        <constraint firstItem="13" firstAttribute="top" secondItem="109" secondAttribute="top" id="MKv-fj-VTL"/>
                         <constraint firstItem="4" firstAttribute="top" secondItem="109" secondAttribute="top" constant="20" id="WdB-Zl-qUp"/>
                         <constraint firstItem="145" firstAttribute="top" secondItem="98" secondAttribute="bottom" constant="250" id="o0O-Sd-kV4"/>
+                        <constraint firstItem="IC4-Dd-HZE" firstAttribute="leading" secondItem="Dsj-Sc-06D" secondAttribute="trailing" constant="20" id="xwE-L5-cbu"/>
+                        <constraint firstItem="IC4-Dd-HZE" firstAttribute="top" secondItem="109" secondAttribute="top" constant="20" id="yC3-sd-m9d"/>
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="23">
@@ -119,10 +150,6 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="13" firstAttribute="top" secondItem="1" secondAttribute="top" id="53"/>
-                <constraint firstItem="13" firstAttribute="bottom" secondItem="1" secondAttribute="bottom" id="56"/>
-                <constraint firstItem="13" firstAttribute="trailing" secondItem="1" secondAttribute="trailing" id="91"/>
-                <constraint firstItem="13" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="92"/>
                 <constraint firstItem="109" firstAttribute="top" secondItem="1" secondAttribute="top" id="138"/>
                 <constraint firstItem="109" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="140"/>
                 <constraint firstItem="109" firstAttribute="bottom" secondItem="1" secondAttribute="bottom" id="142"/>

@@ -16,6 +16,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *chooseVenueButton;
 @property (nonatomic, strong) OVenue *venue;
 @property (strong, nonatomic) OtoroChooseVenueViewController *chooseVenueViewController;
+@property (nonatomic, assign) BOOL newToro;
+@property (nonatomic, assign) BOOL penMode;
+@property (nonatomic, strong) UITapGestureRecognizer *bgTap;
 
 @end
 
@@ -26,7 +29,6 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         locationManager = [[CLLocationManager alloc] init];
-       // [self.view sendSubviewToBack:mapView];
     }
     return self;
 }
@@ -37,11 +39,9 @@
     
 	self.chooseVenueButton.titleLabel.adjustsFontSizeToFitWidth = YES;
 	
-    UITapGestureRecognizer *bgTap =
-    [[UITapGestureRecognizer alloc] initWithTarget:self
+    _bgTap =[[UITapGestureRecognizer alloc] initWithTarget:self
                                             action:@selector(backgroundTap:)];
-    [backgroundView addGestureRecognizer:bgTap];
-    
+
     message.hidden = YES;
     
     mapView.showsUserLocation = YES;
@@ -51,6 +51,10 @@
 - (void)viewWillAppear:(BOOL)animated
 {
 	[super viewWillAppear:animated];
+    _newToro = false;
+    _penMode = false;
+    drawView.userInteractionEnabled = NO;
+    [backgroundView addGestureRecognizer:_bgTap];
     
     self.navigationController.navigationBarHidden = YES;
     
@@ -63,6 +67,7 @@
 	[super viewWillDisappear:animated];
 	[message resignFirstResponder];
 	[locationManager stopUpdatingLocation];
+    [drawView clear];
 }
 
 - (void)clearViewState
@@ -94,27 +99,33 @@
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
     NSLog(@"location manager did update locations");
-    NSLog(@"%@",locations);
+    NSLog(@"locations count: %d",[locations count]);
+    if (_newToro)
+        NSLog(@"true");
+    else
+        NSLog(@"false");
     
     _lastLoc = [locations objectAtIndex:[locations count]-1];
-    NSLog(@"lastLoc: %@", _lastLoc);
-
-    MKCoordinateRegion region;
-    MKCoordinateSpan span;
-    
-    span.latitudeDelta=0.005;
-    span.longitudeDelta=0.005;
-    
-    region.span=span;
-    region.center=_lastLoc.coordinate;
-    
-    [mapView setRegion:region animated:TRUE];
-    [mapView regionThatFits:region];
-
-  //  if ([_lastLoc horizontalAccuracy] < 10) {
-  //      [manager stopUpdatingLocation];
-  //  }
-
+    if (!_newToro) {
+        _newToro = TRUE;
+        
+        NSLog(@"lastLoc: %@", _lastLoc);
+        
+        MKCoordinateRegion region;
+        MKCoordinateSpan span;
+        
+        span.latitudeDelta=0.005;
+        span.longitudeDelta=0.005;
+        
+        region.span=span;
+        region.center=_lastLoc.coordinate;
+        
+        [mapView setRegion:region animated:FALSE];
+        //[mapView regionThatFits:region];
+        NSLog(@"end up setting region");
+    } else {
+        [mapView setCenterCoordinate:_lastLoc.coordinate animated:TRUE];
+    }
 }
 
 -(void) backgroundTap:(id) sender
@@ -143,18 +154,37 @@
 	[self clearViewState];
     [[self navigationController] popViewControllerAnimated:YES];
 }
-/*
--(IBAction) friendListButton:(id) sender
+
+-(IBAction) penPressed:(id)sender
 {
-    NSLog(@"friends view");
-    
-    if (_friendListViewController == nil) {
-        _friendListViewController = [[FriendListViewController alloc] init];
+    _penMode = !_penMode;
+    if(_penMode) NSLog(@"penMode");
+    else NSLog(@"not penMode");
+    if (_penMode) {
+        drawView.userInteractionEnabled = YES;
+        [backgroundView removeGestureRecognizer:_bgTap];
+   //     mapView.userInteractionEnabled = NO;
+    } else {
+        drawView.userInteractionEnabled = NO;
+       [backgroundView addGestureRecognizer:_bgTap];
+ //       mapView.userInteractionEnabled = YES;
     }
-    
-    [self.view addSubview:_friendListViewController.view];
+    // if message is visible,
+    if (message.hidden == NO) {
+        if (message.text.length > 0) {
+            if (message.isFirstResponder)
+                [message resignFirstResponder];
+        } else {
+            message.hidden = YES;
+            [message resignFirstResponder];
+        }
+    }
 }
-*/
+
+-(IBAction) eraserPressed:(id)sender
+{
+    [drawView clearLast];
+}
 
 - (IBAction)choosePlaceButtonPressed:(id)sender
 {
@@ -188,4 +218,7 @@
 	[self.chooseVenueButton setTitle:venue.name forState:UIControlStateNormal];
 	[self checkSendToroButton];
 }
+
+
+ 
 @end
