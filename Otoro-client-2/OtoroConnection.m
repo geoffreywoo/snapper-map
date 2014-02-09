@@ -9,8 +9,8 @@
 #import "OtoroConnection.h"
 #import "Toro.h"
 
-NSString *const OTORO_HOST = @"http://otoro.herokuapp.com";
-//NSString *const OTORO_HOST = @"http://otoro-staging.herokuapp.com";
+NSString *const OTORO_HOST = @"http://api.serrice.com";
+//NSString *const OTORO_HOST = @"http://api-staging.serrice.com";
 
 @interface OtoroConnection ()<NSURLConnectionDelegate>
 {
