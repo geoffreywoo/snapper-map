@@ -17,6 +17,8 @@
 @property (nonatomic, strong) OVenue *venue;
 @property (strong, nonatomic) OtoroChooseVenueViewController *chooseVenueViewController;
 @property (nonatomic, assign) BOOL newToro;
+@property (nonatomic, assign) BOOL penMode;
+@property (nonatomic, strong) UITapGestureRecognizer *bgTap;
 
 @end
 
@@ -37,11 +39,9 @@
     
 	self.chooseVenueButton.titleLabel.adjustsFontSizeToFitWidth = YES;
 	
-    UITapGestureRecognizer *bgTap =
-    [[UITapGestureRecognizer alloc] initWithTarget:self
+    _bgTap =[[UITapGestureRecognizer alloc] initWithTarget:self
                                             action:@selector(backgroundTap:)];
-    [backgroundView addGestureRecognizer:bgTap];
-    
+
     message.hidden = YES;
     
     mapView.showsUserLocation = YES;
@@ -52,6 +52,10 @@
 {
 	[super viewWillAppear:animated];
     _newToro = false;
+    _penMode = false;
+    drawView.userInteractionEnabled = NO;
+    [backgroundView addGestureRecognizer:_bgTap];
+    
     self.navigationController.navigationBarHidden = YES;
     
 	[self checkSendToroButton];
@@ -63,6 +67,7 @@
 	[super viewWillDisappear:animated];
 	[message resignFirstResponder];
 	[locationManager stopUpdatingLocation];
+    [drawView clear];
 }
 
 - (void)clearViewState
@@ -149,18 +154,37 @@
 	[self clearViewState];
     [[self navigationController] popViewControllerAnimated:YES];
 }
-/*
--(IBAction) friendListButton:(id) sender
+
+-(IBAction) penPressed:(id)sender
 {
-    NSLog(@"friends view");
-    
-    if (_friendListViewController == nil) {
-        _friendListViewController = [[FriendListViewController alloc] init];
+    _penMode = !_penMode;
+    if(_penMode) NSLog(@"penMode");
+    else NSLog(@"not penMode");
+    if (_penMode) {
+        drawView.userInteractionEnabled = YES;
+        [backgroundView removeGestureRecognizer:_bgTap];
+   //     mapView.userInteractionEnabled = NO;
+    } else {
+        drawView.userInteractionEnabled = NO;
+       [backgroundView addGestureRecognizer:_bgTap];
+ //       mapView.userInteractionEnabled = YES;
     }
-    
-    [self.view addSubview:_friendListViewController.view];
+    // if message is visible,
+    if (message.hidden == NO) {
+        if (message.text.length > 0) {
+            if (message.isFirstResponder)
+                [message resignFirstResponder];
+        } else {
+            message.hidden = YES;
+            [message resignFirstResponder];
+        }
+    }
 }
-*/
+
+-(IBAction) eraserPressed:(id)sender
+{
+    [drawView clearLast];
+}
 
 - (IBAction)choosePlaceButtonPressed:(id)sender
 {
@@ -194,4 +218,7 @@
 	[self.chooseVenueButton setTitle:venue.name forState:UIControlStateNormal];
 	[self checkSendToroButton];
 }
+
+
+ 
 @end

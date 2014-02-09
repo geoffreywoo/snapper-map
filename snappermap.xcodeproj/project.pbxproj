@@ -52,6 +52,7 @@
 		609227D617B84CC100E1D897 /* CreateToroViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 609227D517B84CC100E1D897 /* CreateToroViewController.xib */; };
 		609227D817B8538C00E1D897 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 609227D717B8538C00E1D897 /* CoreLocation.framework */; };
 		6097D9DF17B34A0100EC094E /* Toro.m in Sources */ = {isa = PBXBuildFile; fileRef = 6097D9DE17B34A0100EC094E /* Toro.m */; };
+		609A27E718A71F4600193789 /* DrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = 609A27E618A71F4600193789 /* DrawView.m */; };
 		60BA35491809F9F300124045 /* delivered@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60BA35481809F9F300124045 /* delivered@2x.png */; };
 		60BA354B1809F9FA00124045 /* opened@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60BA354A1809F9FA00124045 /* opened@2x.png */; };
 		60CE1C6717AEDFE400C6249F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60CE1C6617AEDFE400C6249F /* UIKit.framework */; };
@@ -180,6 +181,8 @@
 		609227D717B8538C00E1D897 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		6097D9DD17B34A0100EC094E /* Toro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Toro.h; sourceTree = "<group>"; };
 		6097D9DE17B34A0100EC094E /* Toro.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Toro.m; sourceTree = "<group>"; };
+		609A27E518A71F4600193789 /* DrawView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawView.h; sourceTree = "<group>"; };
+		609A27E618A71F4600193789 /* DrawView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawView.m; sourceTree = "<group>"; };
 		60BA35481809F9F300124045 /* delivered@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "delivered@2x.png"; sourceTree = "<group>"; };
 		60BA354A1809F9FA00124045 /* opened@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "opened@2x.png"; sourceTree = "<group>"; };
 		60CE1C6217AEDFE400C6249F /* snappermap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = snappermap.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -286,6 +289,7 @@
 		601AB8D617F7A0A900F82013 /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				609A27E818A71F4C00193789 /* DrawView */,
 				601AB8DD17F7ABB300F82013 /* Annotations */,
 				609227D217B84CA100E1D897 /* CreateToroViewController.h */,
 				609227D317B84CA100E1D897 /* CreateToroViewController.m */,
@@ -394,6 +398,15 @@
 				F4F9A53C17DBE1890027AE66 /* OVenue.m */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		609A27E818A71F4C00193789 /* DrawView */ = {
+			isa = PBXGroup;
+			children = (
+				609A27E518A71F4600193789 /* DrawView.h */,
+				609A27E618A71F4600193789 /* DrawView.m */,
+			);
+			name = DrawView;
 			sourceTree = "<group>";
 		};
 		60CE1C5717AEDFE400C6249F = {
@@ -588,7 +601,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 60CE1C5C17AEDFE400C6249F /* Build configuration list for PBXProject "SnapperMap" */;
+			buildConfigurationList = 60CE1C5C17AEDFE400C6249F /* Build configuration list for PBXProject "snappermap" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -724,6 +737,7 @@
 				608EF30617DBF8940040B0B2 /* OtoroReceivedTableViewCell.m in Sources */,
 				F4F9A53917DBDADD0027AE66 /* OtoroChooseVenueViewController.m in Sources */,
 				F4F9A53D17DBE1890027AE66 /* OVenue.m in Sources */,
+				609A27E718A71F4600193789 /* DrawView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -918,7 +932,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		60CE1C5C17AEDFE400C6249F /* Build configuration list for PBXProject "SnapperMap" */ = {
+		60CE1C5C17AEDFE400C6249F /* Build configuration list for PBXProject "snappermap" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				60CE1C8D17AEDFE400C6249F /* Debug */,

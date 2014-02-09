@@ -9,11 +9,13 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 #import "FriendListViewController.h"
+#import "DrawView.h"
 
 @interface CreateToroViewController : UIViewController <MKMapViewDelegate, CLLocationManagerDelegate, UITextFieldDelegate,FriendListViewControllerDelegate>
 {
     CLLocationManager *locationManager;
     IBOutlet MKMapView *mapView;
+    IBOutlet DrawView *drawView;
     IBOutlet UIView *backgroundView;
     IBOutlet UIButton *backButton;
     IBOutlet UIButton *sendToroButton;
@@ -26,6 +28,8 @@
 
 -(IBAction) backButton:(id) sender;
 -(IBAction) sendToroButton:(id) sender;
+-(IBAction) penPressed:(id)sender;
+-(IBAction) eraserPressed:(id)sender;
 //-(IBAction) friendListButton: (id) sender;
 
 
