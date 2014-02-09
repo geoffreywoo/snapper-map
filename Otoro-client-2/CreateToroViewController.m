@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *chooseVenueButton;
 @property (nonatomic, strong) OVenue *venue;
 @property (strong, nonatomic) OtoroChooseVenueViewController *chooseVenueViewController;
+@property (nonatomic, assign) BOOL newToro;
 
 @end
 
@@ -26,7 +27,6 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         locationManager = [[CLLocationManager alloc] init];
-       // [self.view sendSubviewToBack:mapView];
     }
     return self;
 }
@@ -51,7 +51,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
 	[super viewWillAppear:animated];
-    
+    _newToro = false;
     self.navigationController.navigationBarHidden = YES;
     
 	[self checkSendToroButton];
@@ -94,27 +94,33 @@
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
     NSLog(@"location manager did update locations");
-    NSLog(@"%@",locations);
+    NSLog(@"locations count: %d",[locations count]);
+    if (_newToro)
+        NSLog(@"true");
+    else
+        NSLog(@"false");
     
     _lastLoc = [locations objectAtIndex:[locations count]-1];
-    NSLog(@"lastLoc: %@", _lastLoc);
-
-    MKCoordinateRegion region;
-    MKCoordinateSpan span;
-    
-    span.latitudeDelta=0.005;
-    span.longitudeDelta=0.005;
-    
-    region.span=span;
-    region.center=_lastLoc.coordinate;
-    
-    [mapView setRegion:region animated:TRUE];
-    [mapView regionThatFits:region];
-
-  //  if ([_lastLoc horizontalAccuracy] < 10) {
-  //      [manager stopUpdatingLocation];
-  //  }
-
+    if (!_newToro) {
+        _newToro = TRUE;
+        
+        NSLog(@"lastLoc: %@", _lastLoc);
+        
+        MKCoordinateRegion region;
+        MKCoordinateSpan span;
+        
+        span.latitudeDelta=0.005;
+        span.longitudeDelta=0.005;
+        
+        region.span=span;
+        region.center=_lastLoc.coordinate;
+        
+        [mapView setRegion:region animated:FALSE];
+        //[mapView regionThatFits:region];
+        NSLog(@"end up setting region");
+    } else {
+        [mapView setCenterCoordinate:_lastLoc.coordinate animated:TRUE];
+    }
 }
 
 -(void) backgroundTap:(id) sender

@@ -171,10 +171,11 @@
     if (![theToro read]) {
         [self.view addSubview:[theToro toroViewController].view];
         
-        [theToro setTimer: [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(tick:) userInfo:theToro repeats:YES]];
-        [[theToro timerLabel] setText:[NSString stringWithFormat:@"%d",[theToro maxTime]]];
         [theToro setRead: true];
         
+        [theToro setTimer: [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(tick:) userInfo:theToro repeats:YES]];
+        [theToro makeTimerLabel];
+
         [[OtoroConnection sharedInstance] setReadFlagForToroID:theToro.toroId completionBlock:^(NSError *error, NSDictionary *returnData) {
             if (error) {
             } else {
@@ -197,13 +198,8 @@
 
 - (void) hideToroFromButton:(UIButton*)sender
 {
-
     Toro *theToro = [[[OtoroConnection sharedInstance] torosData] objectAtIndex:sender.tag];
     [self hideToro:theToro];
-   // if (!theToro) return;
-  //  if (![theToro toroViewController]) return;
- //   if (!([theToro toroViewController].view)) return;
-
 }
 
 - (void)hideToro:(Toro*)toro

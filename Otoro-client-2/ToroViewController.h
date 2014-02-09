@@ -21,6 +21,7 @@
 @property (nonatomic,strong) IBOutlet UILabel *countDown;
 @property (nonatomic,strong)IBOutlet UILabel *message;
 @property (nonatomic,strong)IBOutlet UILabel *venue;
+@property (nonatomic, assign) CLLocationCoordinate2D location;
 - (id)initWithToro:(Toro *)toro;
 
 @end
