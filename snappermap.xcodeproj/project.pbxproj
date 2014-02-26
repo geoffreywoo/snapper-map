@@ -852,8 +852,9 @@
 		60CE1C9017AEDFE400C6249F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Tony Wu (LZPHZB64CL)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Tony Wu (LZPHZB64CL)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Otoro-client-2/snappermap-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -866,7 +867,7 @@
 				LIBRARY_SEARCH_PATHS = ./Airship;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = snappermap;
-				PROVISIONING_PROFILE = "9EBC0A8C-3363-41AC-9366-4A5612793861";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -875,8 +876,8 @@
 		60CE1C9117AEDFE400C6249F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution: SERRICE CORP (9492KYU2PD)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: SERRICE CORP (9492KYU2PD)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Otoro-client-2/snappermap-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -889,7 +890,7 @@
 				LIBRARY_SEARCH_PATHS = ./Airship;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = snappermap;
-				PROVISIONING_PROFILE = "E557F0E2-A8EF-46AB-8769-8CAC03CF6F7B";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};

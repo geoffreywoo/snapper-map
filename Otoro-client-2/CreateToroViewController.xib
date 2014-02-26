@@ -91,26 +91,6 @@
                                 <outlet property="delegate" destination="-1" id="107"/>
                             </connections>
                         </textField>
-                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IC4-Dd-HZE">
-                            <rect key="frame" x="290" y="0.0" width="30" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" title="Pen">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="penPressed:" destination="-1" eventType="touchDown" id="EYx-D6-PXK"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dsj-Sc-06D">
-                            <rect key="frame" x="220" y="0.0" width="46" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" title="Erase">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="eraserPressed:" destination="-1" eventType="touchDown" id="Mau-Gf-Tvg"/>
-                            </connections>
-                        </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -118,13 +98,9 @@
                         <constraint firstItem="145" firstAttribute="trailing" secondItem="109" secondAttribute="trailing" id="183"/>
                         <constraint firstAttribute="bottom" secondItem="145" secondAttribute="bottom" constant="20" symbolic="YES" id="184"/>
                         <constraint firstAttribute="bottom" secondItem="13" secondAttribute="bottom" id="0DQ-Rl-4NH"/>
-                        <constraint firstAttribute="trailing" secondItem="IC4-Dd-HZE" secondAttribute="trailing" constant="10" id="0fT-MM-Hrl"/>
-                        <constraint firstItem="Dsj-Sc-06D" firstAttribute="top" secondItem="109" secondAttribute="top" constant="20" id="FgJ-hT-ZSv"/>
                         <constraint firstItem="13" firstAttribute="top" secondItem="109" secondAttribute="top" id="MKv-fj-VTL"/>
                         <constraint firstItem="4" firstAttribute="top" secondItem="109" secondAttribute="top" constant="20" id="WdB-Zl-qUp"/>
                         <constraint firstItem="145" firstAttribute="top" secondItem="98" secondAttribute="bottom" constant="250" id="o0O-Sd-kV4"/>
-                        <constraint firstItem="IC4-Dd-HZE" firstAttribute="leading" secondItem="Dsj-Sc-06D" secondAttribute="trailing" constant="20" id="xwE-L5-cbu"/>
-                        <constraint firstItem="IC4-Dd-HZE" firstAttribute="top" secondItem="109" secondAttribute="top" constant="20" id="yC3-sd-m9d"/>
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="23">
